@@ -291,10 +291,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- ADMIN DASHBOARD RENDER & FILTER LOGIC ---
-  const openAdminBtn = document.getElementById('open-admin-btn');
   const closeAdminBtn = document.getElementById('close-admin-btn');
   const adminModal = document.getElementById('admin-modal');
-  const unreadBadge = document.getElementById('unread-count-badge');
   const inquiryListContainer = document.getElementById('admin-inquiry-list');
 
   const statTotalCount = document.getElementById('stat-total-count');
@@ -323,15 +321,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (statNewCount) statNewCount.textContent = newCount;
     if (statWorkingCount) statWorkingCount.textContent = workingCount;
     if (statResolvedCount) statResolvedCount.textContent = resolvedCount;
-
-    if (unreadBadge) {
-      unreadBadge.textContent = newCount;
-      if (newCount === 0) {
-        unreadBadge.classList.add('hidden');
-      } else {
-        unreadBadge.classList.remove('hidden');
-      }
-    }
 
     if (!inquiryListContainer) return;
 
