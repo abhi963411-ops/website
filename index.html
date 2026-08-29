@@ -816,69 +816,172 @@
           </div>
 
           <!-- Contact Form (Right) -->
-          <div class="lg:col-span-7">
-            <form id="contact-form" action="https://api.web3forms.com/submit" action="https://script.google.com/macros/s/AKfycbwmpDCaatPufzuH8YcXoO8MsYTGVLBvvNzNQ6fBmh1HU8ItL6mq3nrlKwgPMbovB-MkWA/exec" method="POST" class="bg-slate-950/90 border border-slate-800 rounded-3xl p-8 sm:p-10 space-y-6 shadow-2xl backdrop-blur-xl">
-              <!-- Target Email & Access Key Configuration for hello@feeldata.in -->
-              <input type="hidden" name="access_key" value="8b1fbcdf-8bfd-40a4-bd55-d6c83116e638">
-              <input type="hidden" name="subject" value="New Inquiry from FeelData Website">
-              <input type="hidden" name="from_name" value="FeelData Contact Form">
-              <input type="hidden" name="to_email" value="founderabhishek@feeldata.in">
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <!-- Full Name -->
-                <div>
-                  <label for="full-name" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Full Name *</label>
-                  <input type="text" id="full-name" name="full-name required placeholder="Jane Doe" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all" />
-                </div>
+         <div class="lg:col-span-7">
 
-                <!-- Business Name -->
-                <div>
-                  <label for="business-name" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Business Name *</label>
-                  <input type="text" id="business-name" name=business-name" required placeholder="Acme Corp" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all" />
-                </div>
-              </div>
+  <form
+    id="contact-form"
+    action="https://script.google.com/macros/s/AKfycbzCz0fV2Y6U0LtCyl0uSMFcjmo0KeWTH5RNmLI9tVcVOn1VwOqyoLWJVhotoVamBcrsNA/exec"
+    method="POST"
+    class="bg-slate-950/90 border border-slate-800 rounded-3xl p-8 sm:p-10 space-y-6 shadow-2xl backdrop-blur-xl"
+  >
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <!-- Email Address -->
-                <div>
-                  <label for="email" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Email Address *</label>
-                  <input type="email" id="email" name="email" required placeholder="jane@example.com" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all" />
-                </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
-                <!-- Phone Number -->
-                <div>
-                  <label for="phone" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Phone Number (Optional)</label>
-                  <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all" />
-                </div>
-              </div>
+      <!-- Full Name -->
+      <div>
+        <label
+          for="full-name"
+          class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2"
+        >
+          Full Name *
+        </label>
 
-              <!-- Help Choice -->
-              <div>
-                <label for="help-type" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">What would you like help with?</label>
-                <select id="help-type" name="help-type" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all">
-                  <option value="organization">Data Organization &amp; Cleanup</option>
-                  <option value="analysis">Data Analysis &amp; Trend Discovery</option>
-                  <option value="insights">Business Insights &amp; Reporting</option>
-                  <option value="process">Process &amp; Cost Improvement</option>
-                  <option value="general">General Business Inquiry</option>
-                </select>
-              </div>
+        <input
+          type="text"
+          id="full-name"
+          name="full-name"
+          required
+          placeholder="Jane Doe"
+          class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
+        />
+      </div>
 
-              <!-- Message -->
-              <div>
-                <label for="message" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Message *</label>
-                <textarea name="message" id="message" rows="4" required placeholder="Tell us briefly about your business and current data goals..." class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"></textarea>
-              </div>
 
-              <!-- Submit Button -->
-              <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-slate-950 font-bold text-base shadow-xl shadow-cyan-500/20 hover:shadow-cyan-500/35 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
-                <span>Send Message</span>
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
-              </button>
-            </form>
-          </div>
+      <!-- Business Name -->
+      <div>
+        <label
+          for="business-name"
+          class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2"
+        >
+          Business Name *
+        </label>
+
+        <input
+          type="text"
+          id="business-name"
+          name="business-name"
+          required
+          placeholder="Acme Corp"
+          class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
+        />
+      </div>
+
+    </div>
+
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+      <!-- Email -->
+      <div>
+        <label
+          for="email"
+          class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2"
+        >
+          Email Address *
+        </label>
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="jane@example.com"
+          class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
+        />
+      </div>
+
+
+      <!-- Phone -->
+      <div>
+        <label
+          for="phone"
+          class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2"
+        >
+          Phone Number (Optional)
+        </label>
+
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="+91 98765 43210"
+          class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
+        />
+      </div>
+
+    </div>
+
+
+    <!-- Help Type -->
+    <div>
+      <label
+        for="help-type"
+        class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2"
+      >
+        What would you like help with?
+      </label>
+
+      <select
+        id="help-type"
+        name="help-type"
+        class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
+      >
+        <option value="organization">Data Organization &amp; Cleanup</option>
+        <option value="analysis">Data Analysis &amp; Trend Discovery</option>
+        <option value="insights">Business Insights &amp; Reporting</option>
+        <option value="process">Process &amp; Cost Improvement</option>
+        <option value="general">General Business Inquiry</option>
+      </select>
+    </div>
+
+
+    <!-- Message -->
+    <div>
+      <label
+        for="message"
+        class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2"
+      >
+        Message *
+      </label>
+
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        required
+        placeholder="Tell us briefly about your business and current data goals..."
+        class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
+      ></textarea>
+    </div>
+
+
+    <!-- Submit -->
+    <button
+      type="submit"
+      id="submit-btn"
+      class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-slate-950 font-bold text-base shadow-xl shadow-cyan-500/20 hover:shadow-cyan-500/35 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+    >
+      <span>Send Message</span>
+
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+        />
+      </svg>
+
+    </button>
+
+  </form>
+
+</div>
 
         </div>
       </div>
