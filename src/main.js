@@ -159,40 +159,95 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- 5. CONTACT FORM SUBMISSION (Direct to hello@feeldata.in) ---
-  const form = document.getElementById("contactForm");
+const form = document.getElementById("contact-form");
+const submitBtn = document.getElementById("submit-btn");
 
-form.addEventListener("submit", async function (e) {
+form.addEventListener("submit", async function (event) {
 
-    e.preventDefault();
+  // Stop browser from redirecting to Google Apps Script
+  event.preventDefault();
+
+  const originalButtonText = submitBtn.innerHTML;
+
+  // Disable button while submitting
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = "<span>Sending...</span>";
+
+  try {
 
     const formData = new FormData(form);
 
-    try {
+    await fetch(form.action, {
+      method: "POST",
+      body: formData
+    });
 
-        const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbwmpDCaatPufzuH8YcXoO8MsYTGVLBvvNzNQ6fBmh1HU8ItL6mq3nrlKwgPMbovB-MkWA/exec",
-            {
-                method: "POST",
-                body: formData
-            }
-        );
+    // Reset form
+    form.reset();
 
-        const result = await response.text();
+    // Show success message
+    showFormMessage(
+      "Thank you for contacting FeelData! We will get back to you soon.",
+      "success"
+    );
 
-        console.log(result);
+  } catch (error) {
 
-        alert("Thank you! Your inquiry has been submitted successfully.");
+    console.error(error);
 
-        form.reset();
+    showFormMessage(
+      "Something went wrong. Please try again.",
+      "error"
+    );
 
-    } catch (error) {
+  }
 
-        console.error("Error:", error);
-
-        alert("Something went wrong. Please try again.");
-    }
+  // Enable button again
+  submitBtn.disabled = false;
+  submitBtn.innerHTML = originalButtonText;
 
 });
+
+
+function showFormMessage(message, type) {
+
+  // Remove previous message if it exists
+  const oldMessage = document.getElementById("form-message");
+
+  if (oldMessage) {
+    oldMessage.remove();
+  }
+
+  const messageBox = document.createElement("div");
+
+  messageBox.id = "form-message";
+
+  if (type === "success") {
+
+    messageBox.className =
+      "mt-6 p-4 rounded-xl border border-green-500/50 bg-green-500/10 text-green-400 text-center font-medium";
+
+  } else {
+
+    messageBox.className =
+      "mt-6 p-4 rounded-xl border border-red-500/50 bg-red-500/10 text-red-400 text-center font-medium";
+  }
+
+  messageBox.innerHTML = message;
+
+  // Show message below the form
+  form.appendChild(messageBox);
+
+  // Automatically hide after 8 seconds
+  setTimeout(() => {
+
+    if (messageBox) {
+      messageBox.remove();
+    }
+
+  }, 8000);
+
+}
   // --- 6. PRIVACY POLICY MODAL HANDLER ---
   const privacyBtn = document.getElementById('privacy-modal-btn');
   const privacyModal = document.getElementById('privacy-modal');
