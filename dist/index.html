@@ -19,8 +19,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
-  <script type="module" crossorigin src="./assets/index-Cw7pZuv8.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DmlrPRSP.css">
+  <script type="module" crossorigin src="./assets/index-BUd5JrKC.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-B9rNc5A9.css">
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950">
 
@@ -803,7 +803,12 @@
 
           <!-- Contact Form (Right) -->
           <div class="lg:col-span-7">
-            <form id="contact-form" class="bg-slate-950/90 border border-slate-800 rounded-3xl p-8 sm:p-10 space-y-6 shadow-2xl backdrop-blur-xl">
+            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="bg-slate-950/90 border border-slate-800 rounded-3xl p-8 sm:p-10 space-y-6 shadow-2xl backdrop-blur-xl">
+              <!-- Target Email & Access Key Configuration for hello@feeldata.in -->
+              <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+              <input type="hidden" name="subject" value="New Inquiry from FeelData Website">
+              <input type="hidden" name="from_name" value="FeelData Contact Form">
+              <input type="hidden" name="to_email" value="hello@feeldata.in">
               
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <!-- Full Name -->
@@ -897,151 +902,48 @@
         </nav>
 
       </div>
+      <!-- Footer Bottom Copyright -->
       <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
         <div>
           &copy; 2026 FeelData. All rights reserved.
         </div>
-        <div class="flex items-center gap-3 text-[11px] text-slate-600 font-mono">
-          <span>Domain: feeldata.in</span>
-          <!-- Discrete Owner Access Lock Icon (Secret trigger for owner) -->
-          <button id="secret-admin-trigger" class="text-slate-700 hover:text-slate-400 focus:outline-none p-1 rounded" title="Owner Access (Ctrl+Shift+A)">
-            🔒
-          </button>
+        <div class="text-[11px] text-slate-600 font-mono">
+          Domain: feeldata.in
         </div>
       </div>
 
     </div>
   </footer>
 
-  <!-- ADMIN PASSCODE AUTH MODAL -->
-  <div id="admin-auth-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-xl">
-    <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-8 space-y-6 shadow-2xl relative">
-      <button id="auth-modal-close" class="absolute top-6 right-6 text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800">
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <!-- PRIVACY MODAL -->
+  <div id="privacy-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative">
+      <button id="privacy-modal-close" class="absolute top-6 right-6 text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
 
-      <div class="text-center space-y-2">
-        <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mx-auto mb-2">
-          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-white">FeelData Owner Verification</h3>
-        <p class="text-xs text-slate-400">Enter your owner passcode to access client inquiries.</p>
+      <div class="space-y-2">
+        <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">Privacy Commitment</span>
+        <h3 class="text-2xl font-bold text-white">FeelData Data Privacy Principles</h3>
       </div>
 
-      <form id="admin-auth-form" class="space-y-4">
-        <div>
-          <label for="admin-passcode" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Owner Passcode</label>
-          <input type="password" id="admin-passcode" required placeholder="Enter passcode..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 font-mono tracking-widest text-center" />
-          <p id="auth-error-msg" class="text-xs text-rose-400 mt-2 hidden text-center font-medium">Incorrect passcode. Access denied.</p>
-        </div>
-
-        <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/20 transition-all">
-          Unlock Dashboard
-        </button>
-      </form>
-      
-      <p class="text-[11px] text-slate-500 text-center font-mono">Default passcode: <code class="text-cyan-400">feeldata2026</code></p>
-    </div>
-  </div>
-
-  <!-- ADMIN DASHBOARD MODAL -->
-  <div id="admin-modal" class="fixed inset-0 z-50 hidden flex flex-col bg-slate-950/95 backdrop-blur-xl overflow-y-auto">
-    
-    <!-- Admin Navbar -->
-    <header class="sticky top-0 z-10 bg-slate-900/90 border-b border-slate-800 px-4 sm:px-8 py-4 flex items-center justify-between shadow-xl">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-white text-sm shadow-md shadow-cyan-500/20">
-          FD
-        </div>
-        <div>
-          <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
-            <span>FeelData Inquiry Dashboard</span>
-            <span class="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-800 px-2 py-0.5 rounded uppercase tracking-wider font-mono">Private Portal</span>
-          </h2>
-          <p class="text-xs text-slate-400">Protected owner interface for managing client queries.</p>
-        </div>
+      <div class="space-y-4 text-xs sm:text-sm text-slate-300 max-h-80 overflow-y-auto pr-2 leading-relaxed">
+        <p>At FeelData, we operate under a strict baseline of client trust and data sovereignty:</p>
+        <ul class="list-disc pl-5 space-y-2 text-slate-300">
+          <li><strong>Data Ownership:</strong> Your business data belongs strictly to your business. FeelData acts solely as an analytical partner.</li>
+          <li><strong>Permission-Based Governance:</strong> Access to data is bounded by clear, mutually agreed parameters.</li>
+          <li><strong>No Hidden Monetization:</strong> We do not sell, transfer, or commercialize client data without explicit authorization.</li>
+          <li><strong>Responsible Practices:</strong> We handle information with privacy-conscious methods focused solely on delivering your requested business insights.</li>
+        </ul>
       </div>
 
-      <!-- Admin Actions -->
-      <div class="flex items-center gap-3">
-        <button id="export-csv-btn" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-medium text-xs border border-slate-700 transition-all flex items-center gap-1.5">
-          <svg class="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-          <span>Export CSV</span>
-        </button>
-
-        <button id="seed-demo-btn" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium text-xs border border-slate-700 transition-all flex items-center gap-1.5" title="Add realistic sample inquiries for testing">
-          <svg class="w-4 h-4 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-          </svg>
-          <span>Add Demos</span>
-        </button>
-
-        <button id="admin-logout-btn" class="px-3.5 py-2 rounded-xl bg-rose-950/60 hover:bg-rose-900 border border-rose-800 text-rose-300 font-medium text-xs transition-all flex items-center gap-1">
-          🔒 <span>Lock Dashboard</span>
-        </button>
-
-        <button id="close-admin-btn" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-all">
-          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
+      <div class="pt-4 border-t border-slate-800 flex justify-end">
+        <button id="privacy-modal-dismiss" class="px-6 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold">
+          Close Window
         </button>
       </div>
-    </header>      </button>
-      </div>
-    </header>
-
-    <!-- Admin Content Area -->
-    <div class="max-w-7xl mx-auto w-full px-4 sm:px-8 py-8 space-y-8 flex-1">
-      
-      <!-- Stats Overview Cards -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4">
-          <span class="text-xs text-slate-400 font-medium block mb-1">Total Inquiries</span>
-          <span id="stat-total-count" class="text-2xl font-bold text-white font-mono">0</span>
-        </div>
-        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4">
-          <span class="text-xs text-slate-400 font-medium block mb-1">New Unread</span>
-          <span id="stat-new-count" class="text-2xl font-bold text-cyan-400 font-mono">0</span>
-        </div>
-        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4">
-          <span class="text-xs text-slate-400 font-medium block mb-1">In Contact / Working</span>
-          <span id="stat-working-count" class="text-2xl font-bold text-amber-400 font-mono">0</span>
-        </div>
-        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4">
-          <span class="text-xs text-slate-400 font-medium block mb-1">Resolved</span>
-          <span id="stat-resolved-count" class="text-2xl font-bold text-emerald-400 font-mono">0</span>
-        </div>
-      </div>
-
-      <!-- Filters & Search Toolbar -->
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-900/60 border border-slate-800/80 p-4 rounded-2xl">
-        <div class="relative w-full sm:w-80">
-          <input type="text" id="admin-search-input" placeholder="Search by name, business, email..." class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
-          <svg class="w-4 h-4 text-slate-500 absolute left-3 top-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </div>
-
-        <!-- Filter Status Buttons -->
-        <div class="flex items-center gap-1.5 w-full sm:w-auto overflow-x-auto">
-          <button data-filter="all" class="admin-filter-btn active px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500 text-slate-950">All</button>
-          <button data-filter="New" class="admin-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white bg-slate-950 border border-slate-800">New</button>
-          <button data-filter="Contacted" class="admin-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white bg-slate-950 border border-slate-800">Contacted</button>
-          <button data-filter="Resolved" class="admin-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white bg-slate-950 border border-slate-800">Resolved</button>
-        </div>
-      </div>
-
-      <!-- Inquiries Container -->
-      <div id="admin-inquiry-list" class="space-y-4">
-        <!-- Rendered dynamically by main.js -->
-      </div>
-
     </div>
   </div>
 
@@ -1053,8 +955,8 @@
       </svg>
     </div>
     <div>
-      <h4 class="text-sm font-bold text-white">Inquiry Received &amp; Saved!</h4>
-      <p class="text-xs text-slate-300">Thank you. Your request is now registered in the FeelData Admin Dashboard.</p>
+      <h4 class="text-sm font-bold text-white">Message Sent Successfully!</h4>
+      <p class="text-xs text-slate-300">Thank you. The FeelData team will respond to hello@feeldata.in shortly.</p>
     </div>
   </div>
 
