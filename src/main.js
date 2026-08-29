@@ -159,78 +159,40 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- 5. CONTACT FORM SUBMISSION (Direct to hello@feeldata.in) ---
-  const contactForm = document.getElementById('contact-form');
-  const submitBtn = document.getElementById('submit-btn');
-  const toastNotification = document.getElementById('toast-notification');
+  const form = document.getElementById("contactForm");
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
+form.addEventListener("submit", async function (e) {
 
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = `
-          <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-slate-950" xmlns="https://script.google.com/macros/s/AKfycbyQkzOcXFCw6t8zrmId3hHKHkFTGZ7pZhX2pH6ukLjy43WIPy4QR5RtXAxaHL3di6HBSA/exec" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>
-          <span>Sending to founderabhishek@feeldata.in...</span>
-        `;
-      }
+    e.preventDefault();
 
-      const formData = new FormData(contactForm);
+    const formData = new FormData(form);
 
-      try {
-        // Forward form data to email API endpoint targeting hello@feeldata.in
-        const response = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          body: formData
-        });
+    try {
 
-        const result = await response.json();
+        const response = await fetch(
+            "https://script.google.com/macros/s/AKfycbwmpDCaatPufzuH8YcXoO8MsYTGVLBvvNzNQ6fBmh1HU8ItL6mq3nrlKwgPMbovB-MkWA/exec",
+            {
+                method: "POST",
+                body: formData
+            }
+        );
 
-        if (result.success || response.ok) {
-          contactForm.reset();
-          if (toastNotification) {
-            toastNotification.classList.remove('hidden');
-            setTimeout(() => {
-              toastNotification.classList.add('hidden');
-            }, 5000);
-          }
-        } else {
-          // Graceful fallback for preview testing
-          console.warn('Form response:', result.message);
-          contactForm.reset();
-          if (toastNotification) {
-            toastNotification.classList.remove('hidden');
-            setTimeout(() => {
-              toastNotification.classList.add('hidden');
-            }, 5000);
-          }
-        }
-      } catch (err) {
-        console.error('Submission error:', err);
-        contactForm.reset();
-        if (toastNotification) {
-          toastNotification.classList.remove('hidden');
-          setTimeout(() => {
-            toastNotification.classList.add('hidden');
-          }, 5000);
-        }
-      } finally {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = `
-            <span>Send Message</span>
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-            </svg>
-          `;
-        }
-      }
-    });
-  }
+        const result = await response.text();
 
+        console.log(result);
+
+        alert("Thank you! Your inquiry has been submitted successfully.");
+
+        form.reset();
+
+    } catch (error) {
+
+        console.error("Error:", error);
+
+        alert("Something went wrong. Please try again.");
+    }
+
+});
   // --- 6. PRIVACY POLICY MODAL HANDLER ---
   const privacyBtn = document.getElementById('privacy-modal-btn');
   const privacyModal = document.getElementById('privacy-modal');
