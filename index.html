@@ -817,7 +817,7 @@
 
           <!-- Contact Form (Right) -->
           <div class="lg:col-span-7">
-            <form id="contact-form" action="https://api.web3forms.com/submit" action="https://script.google.com/macros/s/AKfycbyQkzOcXFCw6t8zrmId3hHKHkFTGZ7pZhX2pH6ukLjy43WIPy4QR5RtXAxaHL3di6HBSA/exec" method="POST" class="bg-slate-950/90 border border-slate-800 rounded-3xl p-8 sm:p-10 space-y-6 shadow-2xl backdrop-blur-xl">
+            <form id="contact-form" action="https://api.web3forms.com/submit" action="https://script.google.com/macros/s/AKfycbwmpDCaatPufzuH8YcXoO8MsYTGVLBvvNzNQ6fBmh1HU8ItL6mq3nrlKwgPMbovB-MkWA/exec" method="POST" class="bg-slate-950/90 border border-slate-800 rounded-3xl p-8 sm:p-10 space-y-6 shadow-2xl backdrop-blur-xl">
               <!-- Target Email & Access Key Configuration for hello@feeldata.in -->
               <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
               <input type="hidden" name="subject" value="New Inquiry from FeelData Website">
@@ -828,13 +828,13 @@
                 <!-- Full Name -->
                 <div>
                   <label for="full-name" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Full Name *</label>
-                  <input type="text" id="full-name" required placeholder="Jane Doe" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all" />
+                  <input type="text" id="full-name" name="full-name required placeholder="Jane Doe" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all" />
                 </div>
 
                 <!-- Business Name -->
                 <div>
                   <label for="business-name" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Business Name *</label>
-                  <input type="text" id="business-name" required placeholder="Acme Corp" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all" />
+                  <input type="text" id="business-name" name=business-name" required placeholder="Acme Corp" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all" />
                 </div>
               </div>
 
@@ -842,20 +842,20 @@
                 <!-- Email Address -->
                 <div>
                   <label for="email" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Email Address *</label>
-                  <input type="email" id="email" required placeholder="jane@example.com" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all" />
+                  <input type="email" id="email" name="email" required placeholder="jane@example.com" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all" />
                 </div>
 
                 <!-- Phone Number -->
                 <div>
                   <label for="phone" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Phone Number (Optional)</label>
-                  <input type="tel" id="phone" placeholder="+1 (555) 000-0000" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all" />
+                  <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all" />
                 </div>
               </div>
 
               <!-- Help Choice -->
               <div>
                 <label for="help-type" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">What would you like help with?</label>
-                <select id="help-type" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all">
+                <select id="help-type" name="help-type" class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all">
                   <option value="organization">Data Organization &amp; Cleanup</option>
                   <option value="analysis">Data Analysis &amp; Trend Discovery</option>
                   <option value="insights">Business Insights &amp; Reporting</option>
@@ -867,7 +867,7 @@
               <!-- Message -->
               <div>
                 <label for="message" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Message *</label>
-                <textarea id="message" rows="4" required placeholder="Tell us briefly about your business and current data goals..." class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"></textarea>
+                <textarea name="message" id="message" rows="4" required placeholder="Tell us briefly about your business and current data goals..." class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"></textarea>
               </div>
 
               <!-- Submit Button -->
